@@ -1,0 +1,16 @@
+{
+  "name": "ton-payment-tracker",
+  "type": "module",
+  "module": "es2022",
+  "dependencies": {
+    "ton": "^12.1.3"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.1",
+    "@types/node": "^18.7.23"
+  },
+  "exports": {
+    ".": "./dist/PaymentTracker.js"
+  },
+  "types": "./types/PaymentTracker.d.ts"
+}
