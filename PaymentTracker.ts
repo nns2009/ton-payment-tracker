@@ -13,7 +13,7 @@ export type TrackingState = {
 export type Payment = {
 	source: Address,
 	amount: number,
-	message: string,
+	message?: string,
 };
 
 export type PaymentsUpdate = {
@@ -111,16 +111,17 @@ export class PaymentTracker {
 			// if (addressEqual(tr.inMessage.source, address))
 			// 	continue;
 
+			let message: string | undefined = undefined;
+
 			const body = tr.inMessage.body;
-			if (!body) // Empty messages without comment
-				continue;
-			if (body.type !== 'text')
-				continue;
+			if (body && body.type === 'text') {
+				message = body.text;
+			}
 
 			payments.push({
 				source: tr.inMessage.source,
 				amount: tr.inMessage.value.toNumber(),
-				message: body.text,
+				message,
 			});
 		}
 

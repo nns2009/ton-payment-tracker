@@ -5,7 +5,7 @@ export declare type TrackingState = {
 export declare type Payment = {
     source: Address;
     amount: number;
-    message: string;
+    message?: string;
 };
 export declare type PaymentsUpdate = {
     payments: Payment[];
